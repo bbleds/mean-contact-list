@@ -5,16 +5,63 @@
 	<!-- bootstrap Css -->
 		<link rel="stylesheet" type="text/css" href="./lib/bootstrap/dist/css/bootstrap.min.css">
 </head>
-<body ng-app>
-	<h1>Hello world from index.html</h1>
+<body ng-app="contactApp">
 
-	<input ng-model="test"/>
-	{{test}}
+
+		<!-- main layout -->
+		<div class="container" ng-controller="mainCtrl as main">
+
+			<h1>My Contact List App</h1>
+
+		<!-- Main input layout-->
+			<div class="row">
+					<div class="col-md-3">
+						<input placeholder="Name" />
+					</div>
+					<div class="col-md-3">
+						<input placeholder="Email"  />
+					</div>
+					<div class="col-md-3">
+						<input  placeholder="Number" />
+					</div>
+					<div class="col-md-3">
+						<button class="btn">Add</button>
+						<button class="btn">Delete</button>
+					</div>
+			</div>
+
+			<div class="row">
+				<div ng-repeat="person in main.contactList">
+					<div class="col-md-3">
+						<p>{{person.name}}</p>
+					</div>
+					<div class="col-md-3">
+						<p>{{person.email}}</p>
+					</div>
+					<div class="col-md-3">
+						<p>{{person.phone}}</p>
+					</div>
+					<div class="col-md-3">
+						<button class="btn">Update</button>
+						<button class="btn">Delete</button>
+					</div>
+
+				</div>
+			</div>
+
+
+
+		</div>
+
+
+
 
 
 
 	<!-- Angular script link -->
 		<script src="./lib/angular/angular.min.js"></script>
+		<script src="./js/app.js"></script>
+		<script src="./js/controllers/mainCtrl.js"></script>
 
 	<!-- Bootstrap js links -->
 		<script src="./lib/jquery/dist/jquery.min.js"></script>
