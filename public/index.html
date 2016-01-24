@@ -2,12 +2,22 @@
 <html>
 <head>
 	<title>A Simple MEAN contact application</title>
+	<!-- bootstrap Css -->
+		<link rel="stylesheet" type="text/css" href="./lib/bootstrap/dist/css/bootstrap.min.css">
 </head>
-<body>
+<body ng-app>
 	<h1>Hello world from index.html</h1>
+
+	<input ng-model="test"/>
+	{{test}}
+
+
 
 	<!-- Angular script link -->
 		<script src="./lib/angular/angular.min.js"></script>
 
+	<!-- Bootstrap js links -->
+		<script src="./lib/jquery/dist/jquery.min.js"></script>
+		<script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
