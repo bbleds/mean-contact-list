@@ -16,17 +16,16 @@
 		<!-- Main input layout-->
 			<div class="row">
 					<div class="col-md-3">
-						<input placeholder="Name" />
+						<input class="form-control" placeholder="Name" ng-model="main.contact.name"/>
 					</div>
 					<div class="col-md-3">
-						<input placeholder="Email"  />
+						<input class="form-control" placeholder="Email"  ng-model="main.contact.email"/>
 					</div>
 					<div class="col-md-3">
-						<input  placeholder="Number" />
+						<input class="form-control"  placeholder="Number" ng-model="main.contact.phone"/>
 					</div>
 					<div class="col-md-3">
-						<button class="btn">Add</button>
-						<button class="btn">Delete</button>
+						<button class="btn" ng-click="main.addNewContact()">Add Contact</button>
 					</div>
 			</div>
 

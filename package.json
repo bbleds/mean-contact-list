@@ -19,6 +19,7 @@
   "homepage": "https://github.com/bbleds/mean-contact-list#readme",
   "dependencies": {
     "angular": "^1.4.9",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "mongojs": "^2.3.0"
   }
 }

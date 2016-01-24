@@ -1,8 +1,8 @@
 app.controller('mainCtrl', function($scope, $http){
 
-	// console.log("Hello world from the mainCtrl controller")
-
+	//set 'this' to the variable self
 	var self = this;
+
 
 	//get data from server
 	$http.get("/contactList")
@@ -12,6 +12,23 @@ app.controller('mainCtrl', function($scope, $http){
 		self.contactList = dataResponse.data;
 	});
 
+	//post request
+	self.addNewContact = function(){
+		console.log("contact is requested - ", self.contact)
+
+		//send the contact object to the server
+		$http.post('/contactList', self.contact)
+		.success(function(response){
+				console.log("response ", response);
+
+				//push new contact into array
+				self.contactList.push(response);
+
+				//clear inputs
+				self.contact = "";
+		});
+
+	}
 
 
 
