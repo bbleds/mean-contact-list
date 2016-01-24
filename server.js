@@ -14,7 +14,10 @@ var app = express();
 				// });
 //==========================================
 
-//tell
+//tell express which template to use as index, and we are telling express to look for static files like html css and js
+	//location is found in static(locationFoundHere), we will put everything in a folder called public
+app.use(express.static(__dirname+"/public"));
+
 
 //listen on port 3000
 app.listen(3000);
