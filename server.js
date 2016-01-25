@@ -70,6 +70,31 @@ app.delete("/contactList/:id", function(req, res){
 
 })
 
+//listen for put requests
+app.put("/contactList/:id", function(req, res){
+
+	var id = req.params.id;
+	console.log("id sent is: ", id);
+	console.log("the request body is ", req.body);
+
+	//send put request to mongo
+		//select contact that we want to modify
+	db.contactList.findAndModify({
+		query: {_id: mongojs.ObjectId(id)},
+		update: {$set: {
+			name: req.body.name,
+			email : req.body.email,
+			phone : req.body.phone
+			}
+		},
+		new: true
+	}, function(err, doc){
+		res.json(doc);
+	});
+
+
+});
+
 
 //listen on port 3000
 app.listen(3000);

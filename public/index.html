@@ -26,6 +26,7 @@
 					</div>
 					<div class="col-md-3">
 						<button class="btn btn-primary" ng-click="main.addNewContact()">Add Contact</button>
+						<button class="btn btn-primary" ng-click="main.updateContact(main.contact)">Update</button>
 					</div>
 			</div>
 
@@ -41,7 +42,7 @@
 						<p>{{person.phone}}</p>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-success">Update</button>
+						<button class="btn btn-success" ng-click="main.editContact(person)">Edit</button>
 						<button class="btn btn-danger" ng-click="main.removeContact(person._id)">Delete</button>
 					</div>
 

@@ -54,6 +54,44 @@ app.controller('mainCtrl', function($scope, $http){
 		});
 	}
 
+	//update existing people in db
+	self.updateContact = function(contact){
+		console.log("contact to update is ", contact);
+
+		console.log("contact id is ", contact.id);
+
+		//send contact object in put request
+		$http.put("/contactList/"+contact.id, contact)
+		.success(function(response){
+			//on success log response, clear inputs, and replace item in array
+			self.contact="";
+
+			//splice out the old one and put in the new
+			self.contactList.map(function(item,index){
+				if(item._id === response._id){
+					self.contactList.splice(index, 1, response);
+				}
+			});
+
+
+
+
+
+		});
+
+	}
+
+	//switch contact to edit mode
+	self.editContact = function(contact){
+			console.log("contact ", contact);
+		self.contact = {
+			name : contact.name,
+			email : contact.email,
+			phone : contact.phone,
+			id : contact._id
+		}
+	}
+
 
 
 
