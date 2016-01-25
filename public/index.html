@@ -25,8 +25,8 @@
 						<input class="form-control"  placeholder="Number" ng-model="main.contact.phone"/>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-primary" ng-click="main.addNewContact()">Add Contact</button>
-						<button class="btn btn-primary" ng-click="main.updateContact(main.contact)">Update</button>
+						<button class="btn btn-primary" ng-hide="main.editModeActive" ng-click="main.addNewContact()">Add Contact</button>
+						<button class="btn btn-primary" ng-show="main.editModeActive" ng-click="main.updateContact(main.contact)">Update</button>
 					</div>
 			</div>
 

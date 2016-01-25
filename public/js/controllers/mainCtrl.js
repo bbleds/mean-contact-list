@@ -2,6 +2,8 @@ app.controller('mainCtrl', function($scope, $http){
 
 	//set 'this' to the variable self
 	var self = this;
+	//is set to true when editing a contact
+	self.editModeActive = false;
 
 
 	//get data from server
@@ -73,8 +75,8 @@ app.controller('mainCtrl', function($scope, $http){
 				}
 			});
 
-
-
+			//turn off edit mode
+			self.editModeActive = false;
 
 
 		});
@@ -84,6 +86,9 @@ app.controller('mainCtrl', function($scope, $http){
 	//switch contact to edit mode
 	self.editContact = function(contact){
 			console.log("contact ", contact);
+
+			self.editModeActive = true;
+
 		self.contact = {
 			name : contact.name,
 			email : contact.email,
