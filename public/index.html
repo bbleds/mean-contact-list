@@ -25,7 +25,7 @@
 						<input class="form-control"  placeholder="Number" ng-model="main.contact.phone"/>
 					</div>
 					<div class="col-md-3">
-						<button class="btn" ng-click="main.addNewContact()">Add Contact</button>
+						<button class="btn btn-primary" ng-click="main.addNewContact()">Add Contact</button>
 					</div>
 			</div>
 
@@ -41,8 +41,8 @@
 						<p>{{person.phone}}</p>
 					</div>
 					<div class="col-md-3">
-						<button class="btn">Update</button>
-						<button class="btn">Delete</button>
+						<button class="btn btn-success">Update</button>
+						<button class="btn btn-danger" ng-click="main.removeContact(person._id)">Delete</button>
 					</div>
 
 				</div>

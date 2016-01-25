@@ -39,7 +39,7 @@ app.get("/contactList", function(req, res){
 
 });
 
-//listen for post data
+//listen for post request
 app.post('/contactList', function(req, res){
 	console.log("I received a post request");
 	console.log("request ", req.body);
@@ -51,7 +51,22 @@ app.post('/contactList', function(req, res){
 			//in addition to posting, send data back to ctrlr on callback
 			res.json(doc);
 	});
+})
 
+//listen for delete requet
+app.delete("/contactList/:id", function(req, res){
+	console.log("delete is requested");
+	//get id url parameter
+	var id = req.params.id;
+	console.log("this is the id ", id);
+
+	//identify contact to remove and delete it
+		//basically, look at id property
+			//if(id of an object matches what we pass in, remove it), then execute callback
+	db.contactList.remove({_id : mongojs.ObjectId(id)}, function(err, doc){
+		// send back data in json format that we removed back to ctrl
+		res.json(doc);
+	})
 
 })
 

@@ -27,7 +27,31 @@ app.controller('mainCtrl', function($scope, $http){
 				//clear inputs
 				self.contact = "";
 		});
+	}
 
+	// delete request
+	self.removeContact = function(id){
+		console.log("id ", id);
+		//delete request
+		$http.delete('/contactList/'+id)
+		.success(function(response){
+			console.log("delete response ", response);
+			//remove the deleted contact from array
+				var updatedArray = []
+
+				self.contactList.map(function(item){
+					if(item._id === id){
+						console.log("thats it");
+					} else {
+						updatedArray.push(item)
+					}
+				})
+
+				self.contactList = updatedArray;
+
+					//make this more efficient with splice method or sumn
+
+		});
 	}
 
 
